@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
+import './FaceExpreDet.css'
 
 const FaceExpressionDetector = () => {
   const videoRef = useRef(null);
@@ -67,27 +68,20 @@ const MODEL_URL = '/models';
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 relative">
-      <h2 className="text-xl font-bold mb-4">Facial Expression Detection</h2>
-      <div style={{ position: 'relative', width: 720, height: 560 }}>
+    <div className="face-exp-det-cont">
+      
+      <div className='vid-container' >
         <video
           ref={videoRef}
           autoPlay
           muted
-          width="720"
-          height="560"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            borderRadius: '10px',
-            border: '2px solid #ccc',
-          }}
+          className="video-webcam"
+          
         />
        
       </div>
 
-      <button onClick={detectFace}>Detect Mood </button>
+      <button className='det-mood-btn' onClick={detectFace}>Detect Mood </button>
     </div>
   );
 };

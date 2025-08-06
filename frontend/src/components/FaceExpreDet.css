@@ -1,0 +1,37 @@
+.face-exp-det-cont{
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+    padding:50px;
+    position: relative;
+    gap:3rem;
+}
+
+
+
+.vid-container{
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-color: black;
+   border-radius: 30px;
+    overflow: hidden;
+}
+
+.video-webcam{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+      border-radius: 30px;
+}
+
+.det-mood-btn{
+    padding:20px 30px;
+    font-size: 20px;
+    border-radius: 30px;
+    border:1px  solid black;
+}
+.det-mood-btn:active{
+    transform: scale(0.98);
+}

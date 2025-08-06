@@ -1,0 +1,15 @@
+.mood-songs-list{
+    width: 100%;
+    padding: 4rem;
+
+}
+
+.mood-songs-list h2{
+    margin-bottom:10px;
+}
+
+.mood-songs-list .song{
+    display: flex;
+    width:100%;
+    
+}
