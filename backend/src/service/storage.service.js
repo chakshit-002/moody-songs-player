@@ -1,5 +1,5 @@
 var ImageKit = require("imagekit");
-
+var mongoose = require('mongoose');
 var imagekit = new ImageKit({
     publicKey : process.env.IMAGEKIT_PUBLIC_KEY,
     privateKey :process.env.IMAGEKIT_PRIVATE_KEY,
@@ -7,10 +7,12 @@ var imagekit = new ImageKit({
 });
 
 function uploadFile(file){
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject) => {
         imagekit.upload({
             file:file.buffer,
-            fileName:"first_song"
+            fileName:new mongoose.Types.ObjectId().toString(),
+            // fileName:Math.random().toString(36).substring(10),
+            folder:"moody-player-songs"
         },(error,result)=>{
             if(error){
                 reject(error);
@@ -19,7 +21,7 @@ function uploadFile(file){
                 resolve(result);
             }
         })
-    })
+    });
 }
 
 

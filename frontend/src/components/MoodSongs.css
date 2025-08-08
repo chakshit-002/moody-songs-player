@@ -1,15 +1,139 @@
-.mood-songs-list{
-    width: 100%;
-    padding: 4rem;
+.mood-songs-list {
+    width: 90vw;
+    padding: 10px;
+    padding-top: 40px;
 
 }
 
-.mood-songs-list h2{
-    margin-bottom:10px;
+.mood-songs-list h2 {
+    margin-bottom: 16px;
+    font-size: 22px;
 }
 
-.mood-songs-list .song{
+.mood-songs-list .song {
     display: flex;
-    width:100%;
-    
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.song .song-det h3 {
+    font-size: 18px;
+}
+
+.song-det p {
+    font-size: 12px;
+}
+
+.song .play-pause-btn button {
+    /* border: 1px solid black; */
+    padding: 1.5px
+}
+
+.play-pause-btn button:hover {
+    cursor: pointer;
+}
+
+.play-pause-btn button i {
+    font-size: 28px;
+}
+
+.play-pause-btn button:active {
+    scale: 0.94;
+}
+
+@media (min-width:640px) {
+    .mood-songs-list {
+      width: 80vw;
+      padding-top: 80px;
+
+    }
+
+    .mood-songs-list h2 {
+        margin-bottom: 16px;
+        font-size: 36px;
+    }
+
+    .mood-songs-list .song {
+        margin-top: 25px;
+    }
+
+    .song .song-det h3 {
+        font-size: 22px;
+    }
+
+    .song-det p {
+        font-size: 16px;
+    }
+
+    .song .play-pause-btn button {
+        /* border: 1px solid black; */
+        padding: 2.5px
+    }
+
+    .play-pause-btn button:hover {
+        cursor: pointer;
+    }
+
+    .play-pause-btn button i {
+        font-size: 32px;
+    }
+
+    .play-pause-btn button:active {
+        scale: 0.94;
+    }
+}
+@media (min-width:768px) {
+    .mood-songs-list {
+         width: 70vw;
+    }
+}
+
+@media (min-width:1024px) {
+    .mood-songs-list {
+        width: 860px;
+    }
+}
+
+@media (min-width:640px) {
+    .mood-songs-list {
+      width: 900px;
+      padding-top: 80px;
+
+    }
+
+    .mood-songs-list h2 {
+        margin-bottom: 16px;
+        font-size: 36px;
+    }
+
+    .mood-songs-list .song {
+        margin-top: 25px;
+    }
+
+    .song .song-det h3 {
+        font-size: 22px;
+    }
+
+    .song-det p {
+        font-size: 16px;
+    }
+
+    .song .play-pause-btn button {
+        /* border: 1px solid black; */
+        padding: 2.5px
+    }
+
+    .play-pause-btn button:hover {
+        cursor: pointer;
+    }
+
+    .play-pause-btn button i {
+        font-size: 32px;
+    }
+
+    .play-pause-btn button:active {
+        scale: 0.94;
+    }
 }

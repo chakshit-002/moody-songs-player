@@ -3,8 +3,9 @@
 import React, { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
 import './FaceExpreDet.css'
+import axios from 'axios';
 
-const FaceExpressionDetector = () => {
+const FaceExpressionDetector = ({setSongs,setIsPlaying}) => {
   const videoRef = useRef(null);
   
   const loadModels = async () => {
@@ -29,7 +30,7 @@ const MODEL_URL = '/models';
       });
   };
 
-  const detectFace = async () => {
+  const detectMood = async () => {
     if (!videoRef.current ) return;
 
     const detections = await faceapi
@@ -38,6 +39,7 @@ const MODEL_URL = '/models';
       .withFaceExpressions();
         let mostProbableExpression = 0;
         let _expression = '';
+        
         if(!detections || detections.length==0){
             console.log("no face  detected")
             return;
@@ -49,6 +51,14 @@ const MODEL_URL = '/models';
             }
         }
         console.log(_expression)
+
+        // get http://localhost:3000/songs?mood=happy
+        axios.get(`http://localhost:3000/songs?mood=${_expression}`)
+        .then((response)=>{
+          console.log(response.data)
+          setSongs(response.data.songs)
+        })
+        setIsPlaying(null);
   };
 
   useEffect(() => {
@@ -58,7 +68,7 @@ const MODEL_URL = '/models';
 
       // Set up detection loop
     //   const interval = setInterval(() => {
-    //     detectFace();
+    //     detectMood();
     //   }, 5000); // every 0.5 second
 
       return () => clearInterval(interval);
@@ -81,7 +91,7 @@ const MODEL_URL = '/models';
        
       </div>
 
-      <button className='det-mood-btn' onClick={detectFace}>Detect Mood </button>
+      <button className='det-mood-btn' onClick={detectMood}>Detect Mood </button>
     </div>
   );
 };
